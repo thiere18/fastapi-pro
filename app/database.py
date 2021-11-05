@@ -6,12 +6,12 @@ from random import randrange
 import psycopg2 as psy
 from psycopg2.extras import RealDictCursor
 from sqlalchemy.ext.declarative import declarative_base
-from .config import settings as st
+from .config import settings 
 from sqlalchemy.orm import sessionmaker
 
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://{st.database_username}:{st.database_password}@{st.database_host}:{st.database_port}/{st.database_name}"
-
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{st.database_host}:{st.database_port}/{st.database_name}"
+{settings.database_url}
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
