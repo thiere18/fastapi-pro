@@ -1,7 +1,6 @@
 from typing import Text
 from sqlalchemy import Column,Integer,String,Boolean,ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.coercions import _StringOnly
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from .database import Base
@@ -27,5 +26,6 @@ class Vote(Base):
     __tablename__ = 'votes'
     user_id = Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),primary_key=True,nullable=False,)
     post_id = Column(Integer,ForeignKey("posts.id",ondelete="CASCADE"),primary_key=True,nullable=False,)
+
 
 
